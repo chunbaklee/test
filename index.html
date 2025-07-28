@@ -1,103 +1,156 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>진로마루 - 진로 검사도구 홈페이지</title>
+  <meta charset="UTF-8">
+  <title>진로탐색 홈페이지</title>
   <style>
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f6f9fc;
-      color: #333;
-    }
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 1.5rem 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #34495e;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      padding: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background: #1abc9c;
-    }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      border-left: 5px solid #1abc9c;
-      padding-left: 10px;
-      margin-top: 2rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    table, th, td {
-      border: 1px solid #ccc;
-    }
-    th, td {
-      padding: 1rem;
-      text-align: left;
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-    @media (max-width: 768px) {
-      nav a {
-        flex: 1 1 100%;
-        text-align: center;
-      }
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      td {
-        border: none;
-        border-bottom: 1px solid #ccc;
-      }
+    body { font-family: '맑은 고딕', Arial, sans-serif; margin: 0; background: #f7f7f7;}
+    header { background: #2d6cdf; color: #fff; padding: 20px 0; text-align: center;}
+    nav { background: #1b3a7a; padding: 10px 0; }
+    nav a { color: #fff; margin: 0 20px; text-decoration: none; font-weight: bold;}
+    nav a:hover { text-decoration: underline; }
+    section { max-width: 800px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px #ccc;}
+    h2 { color: #2d6cdf; }
+    .job-list { display: flex; gap: 20px; }
+    .job-card { background: #eaf1fb; padding: 15px; border-radius: 8px; flex: 1; }
+    .qna-list { list-style: none; padding: 0; }
+    .qna-list li { background: #f0f4fa; margin-bottom: 10px; padding: 10px; border-radius: 6px;}
+    .btn { background: #2d6cdf; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;}
+    .btn:hover { background: #1b3a7a; }
+    footer { text-align: center; color: #888; padding: 20px 0; }
+    @media (max-width: 600px) {
+      section { padding: 10px; }
+      .job-list { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>진로마루</h1>
-    <p>학생의 진로를 함께 설계하는 검사도구 플랫폼</p>
+    <h1>고등학생 진로탐색 홈페이지</h1>
+    <p>여러분의 꿈을 응원합니다!</p>
   </header>
-
   <nav>
-    <a href="#">홈</a>
-    <a href="#tools">검사도구</a>
-    <a href="#guide">검사 해석</a>
-    <a href="#apply">상담 신청</a>
-    <a href="#info">진로정보</a>
+    <a href="#main">홈</a>
+    <a href="#test">진로적성검사</a>
+    <a href="#jobs">직업정보</a>
+    <a href="#counsel">상담신청</a>
+    <a href="#qna">Q&A</a>
   </nav>
 
-  <main>
-    <section id="tools">
-      <h2>📋 진로 검사도구</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>검사 유형</th>
-            <th>검사 이름</th>
-            <th>설명
+  <!-- 메인 소개 -->
+  <section id="main">
+    <h2>진로탐색을 시작해보세요!</h2>
+    <p>흥미와 적성에 맞는 다양한 직업을 탐색하고, 궁금한 점은 언제든 상담해보세요.</p>
+  </section>
+
+  <!-- 진로적성검사 -->
+  <section id="test">
+    <h2>진로적성검사</h2>
+    <form id="aptitudeForm">
+      <p>1. 나는 사람들과 이야기하는 것이 즐겁다.</p>
+      <label><input type="radio" name="q1" value="E"> 예</label>
+      <label><input type="radio" name="q1" value="I"> 아니오</label>
+      <p>2. 나는 새로운 아이디어를 생각해내는 것이 좋다.</p>
+      <label><input type="radio" name="q2" value="C"> 예</label>
+      <label><input type="radio" name="q2" value="R"> 아니오</label>
+      <p>3. 나는 계획을 세우고 실천하는 것을 좋아한다.</p>
+      <label><input type="radio" name="q3" value="S"> 예</label>
+      <label><input type="radio" name="q3" value="A"> 아니오</label>
+      <br><br>
+      <button type="button" class="btn" onclick="showResult()">결과 보기</button>
+    </form>
+    <div id="testResult" style="margin-top:20px; font-weight:bold;"></div>
+  </section>
+
+  <!-- 직업정보 -->
+  <section id="jobs">
+    <h2>직업정보</h2>
+    <div class="job-list">
+      <div class="job-card">
+        <h3>심리상담사</h3>
+        <p>사람들의 고민을 듣고, 심리적 문제를 해결하도록 돕는 직업입니다.</p>
+        <p><b>관련학과:</b> 심리학, 상담학</p>
+      </div>
+      <div class="job-card">
+        <h3>소프트웨어 개발자</h3>
+        <p>앱, 웹, 게임 등 다양한 소프트웨어를 개발하는 직업입니다.</p>
+        <p><b>관련학과:</b> 컴퓨터공학, 소프트웨어공학</p>
+      </div>
+      <div class="job-card">
+        <h3>간호사</h3>
+        <p>환자의 건강을 돌보고 치료를 돕는 의료 전문가입니다.</p>
+        <p><b>관련학과:</b> 간호학</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상담신청 -->
+  <section id="counsel">
+    <h2>상담신청</h2>
+    <form id="counselForm">
+      <label>이름: <input type="text" name="name" required></label><br><br>
+      <label>이메일: <input type="email" name="email" required></label><br><br>
+      <label>상담 내용:<br>
+        <textarea name="content" rows="4" cols="40" required></textarea>
+      </label><br><br>
+      <button type="submit" class="btn">신청하기</button>
+    </form>
+    <div id="counselMsg" style="margin-top:15px; color:green;"></div>
+  </section>
+
+  <!-- Q&A 게시판 -->
+  <section id="qna">
+    <h2>Q&A</h2>
+    <form id="qnaForm">
+      <input type="text" id="qnaInput" placeholder="궁금한 점을 입력하세요" required style="width:70%;">
+      <button type="submit" class="btn">질문하기</button>
+    </form>
+    <ul class="qna-list" id="qnaList"></ul>
+  </section>
+
+  <footer>
+    &copy; 2024 진로탐색 홈페이지 | 상담교사 선생님과 함께
+  </footer>
+
+  <script>
+    // 진로적성검사 결과
+    function showResult() {
+      const form = document.getElementById('aptitudeForm');
+      const q1 = form.q1.value;
+      const q2 = form.q2.value;
+      const q3 = form.q3.value;
+      let result = '';
+      if (!q1 || !q2 || !q3) {
+        result = '모든 문항에 답해주세요!';
+      } else {
+        // 간단한 로직 예시
+        if (q1 === 'E' && q2 === 'C') result = '추천 진로: 상담사, 교사, 기획자';
+        else if (q1 === 'I' && q2 === 'R') result = '추천 진로: 개발자, 연구원, 디자이너';
+        else if (q3 === 'S') result = '추천 진로: 간호사, 공무원, 관리자';
+        else result = '다양한 진로를 탐색해보세요!';
+      }
+      document.getElementById('testResult').innerText = result;
+    }
+
+    // 상담신청 폼 처리
+    document.getElementById('counselForm').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('counselMsg').innerText = '상담 신청이 접수되었습니다. 곧 연락드리겠습니다!';
+      this.reset();
+    };
+
+    // Q&A 게시판
+    document.getElementById('qnaForm').onsubmit = function(e) {
+      e.preventDefault();
+      const input = document.getElementById('qnaInput');
+      const list = document.getElementById('qnaList');
+      if (input.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = input.value;
+        list.appendChild(li);
+        input.value = '';
+      }
+    };
+  </script>
+</body>
+</html>
