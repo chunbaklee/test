@@ -1,8 +1,103 @@
-안녕하세요<br>
-만나서 반갑습니다.<br>
-저는 <a href="https://www.dst.ac.kr">대전과학기술대학교</a>
-에서 연수중인 
-<font color=red>교사</font>입니다.<br>
-졸립고 힘이 듭니다.<br>
-그래도 유익한 연수라 참고 잘 듣고 있습니다만,<br>
-Cursor AI앱이 문제입니다.
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>진로마루 - 진로 검사도구 홈페이지</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f9fc;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background: #1abc9c;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      border-left: 5px solid #1abc9c;
+      padding-left: 10px;
+      margin-top: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      nav a {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      td {
+        border: none;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>진로마루</h1>
+    <p>학생의 진로를 함께 설계하는 검사도구 플랫폼</p>
+  </header>
+
+  <nav>
+    <a href="#">홈</a>
+    <a href="#tools">검사도구</a>
+    <a href="#guide">검사 해석</a>
+    <a href="#apply">상담 신청</a>
+    <a href="#info">진로정보</a>
+  </nav>
+
+  <main>
+    <section id="tools">
+      <h2>📋 진로 검사도구</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>검사 유형</th>
+            <th>검사 이름</th>
+            <th>설명
